@@ -46,27 +46,27 @@ with open(file_to_load) as election_data:
         #Add a vote the candidates count
         candidate_votes[candidate_name] += 1
 
-    for candidate_name in candidate_votes:
-        # Retrieve vote count of a candidate.
-        votes = candidate_votes[candidate_name]
-        #Calc % of total votes
-        vote_percentage = float(votes) / float(total_votes) * 100
-        # 4. Print the candidate anme and percentage of votes
-        print(f"{candidate_name}: {vote_percentage:.1f}% ({votes:,})\n")
-        
-        # Determine winning vote count and candidate
-        if (votes > winning_count) and (vote_percentage > winning_percentage):
-            winning_count = votes
-            winning_percentage = vote_percentage
-            winning_candidate = candidate_name
+for candidate_name in candidate_votes:
+    # Retrieve vote count of a candidate.
+    votes = candidate_votes[candidate_name]
+    #Calc % of total votes
+    vote_percentage = float(votes) / float(total_votes) * 100
+    # 4. Print the candidate anme and percentage of votes
+    print(f"{candidate_name}: {vote_percentage:.1f}% ({votes:,})\n")
+    
+    # Determine winning vote count and candidate
+    if (votes > winning_count) and (vote_percentage > winning_percentage):
+        winning_count = votes
+        winning_percentage = vote_percentage
+        winning_candidate = candidate_name
 
-    winning_candidate_summary = (
-        f"----------------------------\n"
-        f"Winner = {winning_candidate}\n"
-        f"Winning Vote Count: {winning_count:,}\n"
-        f"Winning Vote Percentage: {winning_percentage:.1f}%\n"
-        f"----------------------------\n")
-    print(winning_candidate_summary)
+winning_candidate_summary = (
+    f"----------------------------\n"
+    f"Winner = {winning_candidate}\n"
+    f"Winning Vote Count: {winning_count:,}\n"
+    f"Winning Vote Percentage: {winning_percentage:.1f}%\n"
+    f"----------------------------\n")
+print(winning_candidate_summary)    
 
     
 
